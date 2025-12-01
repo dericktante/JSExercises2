@@ -1,13 +1,16 @@
-function filterRangeInPlace(array, a, b){
-   for (let i = 0; i < array.length; i++){
-        let val = array[i];
-
-        if (val < a || val > b) {
-            array.splice(i, 1);
-            i--;
+function filterRangeInPlace(arr, a, b){
+   for (let i = arr.length - 1; i >= 0; i--){
+        if (arr[i] < a || arr[i] > b) {
+            arr.splice(i, 1);
         }
     }
+    return arr;
 }
-let array = [5, 3, 8, 1];
-filterRangeInPlace(array, 1, 4);
-console.log( array ); 
+
+function filterRangeInPlaceSol(){
+    const input = prompt("Enter an array of number separated by commas:");
+    const a = parseInt(prompt("Enter the lower bound"));
+    const b = parseInt(prompt("Enter the upper bound"));
+    const result = filterRangeInPlace(input.split(",").map(Number), a, b);
+    alert("Filtered Array : " + result.join(", "));
+}
