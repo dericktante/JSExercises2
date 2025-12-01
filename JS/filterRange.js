@@ -1,6 +1,11 @@
 function filterRange(arr, a, b){
-    return arr.filter(item => ( a <= item && item <= b));
+    return arr
+    .filter(item => ( item >= a && item <= b));
 }
-let arr = [5, 3, 8, 1];
-let filtered = filterRange(arr, 1, 4);
-console.log(filtered);
+
+function filterRangeSol(){
+    const input = prompt("Enter an array of numbers separated by commas:");
+    const a = parseInt(prompt("Enter the lower bound"));
+    const b = parseInt(prompt("Enter the upper bound"));
+    alert("Filtered array: " + filterRange(input.split(",").map(Number), a, b).join(", "));
+}
